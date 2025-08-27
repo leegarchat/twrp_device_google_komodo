@@ -97,6 +97,7 @@
 /dev/acd-mel_processor          0660   system     audio
 /dev/amcs                       0660   system     audio
 /dev/acd-audio_rtp_*            0660   system     radio
+/dev/acd-mc_headpos             0660   system     audio
 
 # Secure MEM driver
 /dev/s5p-smem             0660   drm        drmrpc
@@ -144,20 +145,27 @@
 # AoC
 /dev/aoc                 0660   system     system
 
-# AoC stats (UmfwStat)
-/dev/acd-com.google.umfw_stat        0660   system     system
-
 # Sensors (USF)
-/dev/acd-com.google.usf              0660   system     system
-/dev/acd-com.google.usf.non_wake_up  0660   system     system
+/dev/acd-com.google.usf               0660   system     system
+/dev/acd-com.google.usf.non_wake_up   0660   system     system
 
-# CHRE (USF)
-/dev/acd-com.google.chre              0660   system     system
+# CHRE
+/dev/acd-com.google.chre  		        0660   system     system
 /dev/acd-com.google.chre.non_wake_up  0660   system     system
+
+# CHRE (EFW transport)
+/dev/acd-chre_ctl       	0660   system   system
+/dev/acd-chre_data_tx   	0220   system   system
+/dev/acd-chre_data_rx   	0440   system   system
 
 # BT
 /dev/acd-com.google.bt  		          0660   system     system
 /dev/acd-com.google.bt.non_wake_up  	0660   system     system
+
+# AoC Bluetooth Offload
+/dev/acd-chre_bt_offload_ctl       0660   bluetooth   bluetooth
+/dev/acd-chre_bt_offload_data_tx   0220   bluetooth   bluetooth
+/dev/acd-chre_bt_offload_data_rx   0440   bluetooth   bluetooth
 
 # LWIS
 /dev/lwis*               0660   system     system
@@ -170,14 +178,16 @@
 
 # SecureElement
 /dev/st54spi             0660   secure_element secure_element
+/dev/st33spi             0660   secure_element secure_element
 
 #bigwave
 /dev/bigwave             0660   mediacodec mediadrm
 
 # Trusty
-/dev/trusty-ipc-dev0                                     0660   system     drmrpc
-/dev/trusty-log0                                         0660   system     system
-/dev/block/platform/13200000\.ufs/by-name/trusty_persist 0660   system     system
+/dev/trusty-ipc-dev0                                      0660   system     drmrpc
+/dev/trusty-log0                                          0660   system     system
+/dev/block/platform/13200000\.ufs/by-name/trusty_persist  0660   system     system
+/dev/block/platform/13200000\.ufs/by-name/trusty_userdata 0660   system     system
 
 # RPMB
 /dev/sg1                 0660   system     system
@@ -221,7 +231,6 @@
 /dev/dma_heap/farawimg-secure          0444   system     graphics
 /dev/dma_heap/tui-secure               0444   system     graphics
 /dev/dma_heap/vframe-secure            0444   system     drmrpc
-/dev/dma_heap/framebuffer-secure       0444   system     drmrpc
 /dev/dma_heap/vscaler-secure           0444   system     graphics
 /dev/dma_heap/vstream-secure           0444   system     drmrpc
 /dev/dma_heap/sensor_direct_heap       0444   system     graphics
@@ -239,10 +248,5 @@
 # Wlan
 /dev/wlan                              0660   wifi       wifi
 
-# Udfps
-/sys/bus/aoc/devices/control    udfps_set_clock_source  0220    system  system
-/sys/bus/aoc/devices/control    udfps_get_osc_freq      0440    system  system
-/sys/bus/aoc/devices/control    udfps_get_disp_freq     0440    system  system
-
 # USB Alt Modes
-/sys/devices/platform/10cb0000.hsi2c/i2c-*/*-0025/typec/port0/port0-partner/port0-partner.*    mode1/active    0664    system    system
+/sys/devices/platform/108d0000.hsi2c/i2c-*/*-0025/typec/port0/port0-partner/port0-partner.*    mode1/active    0664    system    system
