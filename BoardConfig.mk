@@ -219,7 +219,7 @@ BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 67108864
 # В случае динамических разделов (super) эти флаги влияют на внутренние образы при создании system.img и т.д. Например,
 # Pixel 8 стандартно использует ext4 для system/vendor и f2fs для data.
 
-BOARD_FLASH_BLOCK_SIZE := 131072
+BOARD_FLASH_BLOCK_SIZE := 4096
 # размер блока флэш-памяти (UFS) в байтах. Используется при форматировании/выравнивании образов.
 
 
@@ -251,7 +251,7 @@ TARGET_RECOVERY_WIPE := $(DEVICE_PATH)/recovery.wipe
 
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel/brightness"
 TW_MAX_BRIGHTNESS := 3827
-TW_DEFAULT_BRIGHTNESS := 219
+TW_DEFAULT_BRIGHTNESS := 600
 # путь в sysfs к яркости дисплея и максимальное/дефолтное значения яркости. Эти переменные нужны TWRP для управления экраном. 
 # У Pixel 8 устанавливаются актуальные значения (максимум 3827) для правильной работы ползунка яркости.
 
