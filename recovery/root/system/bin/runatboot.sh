@@ -210,8 +210,6 @@ slot_detect(){
 
 
 modules_touch_install(){
-    modules_touch="qbt_handler heatmap goog_touch_interface sec_touch syna_touch"
-
     mkdir -vp \
         /dev/modules_inject/vendor_dlkm_a \
         /dev/modules_inject/vendor_dlkm_b
@@ -346,6 +344,7 @@ device_code=`getprop ro.hardware`;
 
 fix_bootcontrol_and_SPL_downgrade_wipe
 slot_detect
+modules_touch="qbt_handler heatmap goog_touch_interface sec_touch syna_touch"
 modules_touch_install
 fix_kerror7
 update_keys_in_file general_value_props;
